@@ -5,7 +5,7 @@ import {createServer} from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const PORT=3000;
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // const data_file=path.join("data","links.json");
 const DATA_FILE=path.join(__dirname,"data","links.json");
@@ -88,6 +88,7 @@ const server=createServer(async (req,res)=>{
         });
     }
 });
-server.listen(PORT,()=>{
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
